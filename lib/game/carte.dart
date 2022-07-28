@@ -13,62 +13,44 @@ class Carte extends StatefulWidget {
   State<Carte> createState() => _CarteState();
 }
 
+gameTurn(context) {
+  print(context);
+}
+
 class _CarteState extends State<Carte> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FlipCard(
-        fill: Fill
-            .fillBack, // Fill the back side of the card to make in the same size as the front.
-        direction: FlipDirection.HORIZONTAL, // default
-        front: Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: Color.fromARGB(255, 77, 77, 77)),
-              borderRadius: BorderRadius.circular(16),
-              image: const DecorationImage(
-                image: AssetImage("assets/dos-carte.jpg"),
-                fit: BoxFit.cover,
-              )),
-          height: 125,
-          width: 80,
-        ),
-        back: Container(
-          decoration: BoxDecoration(
+    // TODO: Manually flio the card in order to add function rules game
+    return FlipCard(
+      fill: Fill
+          .fillBack, // Fill the back side of the card to make in the same size as the front.
+      direction: FlipDirection.HORIZONTAL, // default
+      onFlipDone: ,
+      front: Container(
+        decoration: BoxDecoration(
             border: Border.all(color: Color.fromARGB(255, 77, 77, 77)),
             borderRadius: BorderRadius.circular(16),
-          ),
-          height: 125,
-          width: 80,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                widget.valeur,
-                style: const TextStyle(
-                  fontSize: 34,
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-              Text(
-                widget.couleur,
-                style: const TextStyle(
-                  fontSize: 40,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ],
-          ),
-        ),
+            image: const DecorationImage(
+              image: AssetImage("assets/dos-carte.jpg"),
+              fit: BoxFit.cover,
+            )),
+        height: 125,
+        width: 80,
       ),
-    );
-
-    /* Column(
+      back: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Color.fromARGB(255, 77, 77, 77)),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        height: 125,
+        width: 80,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               widget.valeur,
               style: const TextStyle(
-                fontSize: 36,
+                fontSize: 34,
                 color: Colors.black,
                 decoration: TextDecoration.none,
               ),
@@ -76,11 +58,13 @@ class _CarteState extends State<Carte> {
             Text(
               widget.couleur,
               style: const TextStyle(
-                fontSize: 48,
+                fontSize: 40,
                 decoration: TextDecoration.none,
               ),
             ),
           ],
-        ) */
+        ),
+      ),
+    );
   }
 }

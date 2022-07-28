@@ -16,7 +16,7 @@ class Paquet {
 }
 
 createMemoryPaquet(paquet) {
-  int difficulte = 8;
+  int difficulte = 4;
   int count = 2; // First card out of while
   List memoryPaquet = [];
   while (count != difficulte) {
