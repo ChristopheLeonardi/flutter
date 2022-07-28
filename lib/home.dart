@@ -1,8 +1,7 @@
 /* Create mosaique des jeu */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'components/inputButton.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -23,14 +22,16 @@ class _HomeState extends State<Home> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const <Widget>[
-            Text(
-              'Test',
+        child: ListView(
+          padding: const EdgeInsets.all(10),
+          children: <Widget>[
+            InputButton(
+              name: "paires",
+              urlImage: "assets/ico-paire.png",
             ),
-            Text(
-              'Test',
+            InputButton(
+              name: "Second jeu",
+              urlImage: "assets/ico-paire.png",
             ),
           ],
         ),

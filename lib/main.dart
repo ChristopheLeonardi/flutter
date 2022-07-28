@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'game/paire.dart';
 import 'home.dart';
+import 'game/paire.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Jeux de Carte',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          fontFamily: 'Luxia',
         ),
         routes: {
           '/': (context) => Home(),
-          //'/paire': (context) => Paire(),
+          '/paire': (context) => Paire(),
         });
   }
 }
