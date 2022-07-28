@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class Paquet {
-  var couleurs = ["Pique", "Coeur", "Carreau", "Trèfle"];
-  var valeurs = ["As", "7", "8", "9", "10", "Valet", "Dame", "Roi"];
+  var couleurs = ["♥", "♦", "♣", "♦"];
+  var valeurs = ["A", "7", "8", "9", "10", "V", "D", "R"];
 
   dynamic pickCard() {
     var carte = {
@@ -53,15 +53,18 @@ class _MyWidgetState extends State<Paire> {
   Widget build(BuildContext context) {
     final Paquet paquet = Paquet();
     var memoryPaquet = createMemoryPaquet(paquet);
-    print(memoryPaquet.length);
-    print(memoryPaquet);
-    return ListView(
-      children: List.generate(memoryPaquet.length, (index) {
-        return Carte(
-          couleur: memoryPaquet[index].couleur,
-          valeur: memoryPaquet[index].valeur,
-        );
-      }),
-    );
+    return Container(
+        color: Colors.white,
+        child: Center(
+            child: Wrap(
+          spacing: 25,
+          runSpacing: 25,
+          children: List.generate(memoryPaquet.length, (index) {
+            return Carte(
+              couleur: memoryPaquet[index]["couleur"],
+              valeur: memoryPaquet[index]["valeur"],
+            );
+          }),
+        )));
   }
 }
