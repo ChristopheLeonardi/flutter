@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'game/paire.dart';
+import 'components/routeGenerator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Jeux de Carte',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: 'Luxia',
-        ),
-        routes: {
-          '/': (context) => Home(),
-          '/paire': (context) => Paire(),
-        });
+      title: 'Jeux de Carte',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Montserrat',
+      ),
+      routes: {
+        '/': (context) => const Home(),
+        '/paire': (context) => const Paire(),
+      },
+      onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: '/',
+    );
   }
 }

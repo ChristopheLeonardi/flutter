@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../game/paire.dart';
 
 class InputButton extends StatefulWidget {
   const InputButton({Key? key, required this.name, required this.urlImage})
@@ -17,13 +16,13 @@ class _InputButtonState extends State<InputButton> {
       margin: const EdgeInsets.fromLTRB(25, 35, 25, 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Color.fromARGB(255, 243, 243, 243),
+        color: const Color.fromARGB(255, 243, 243, 243),
       ),
       child: Container(
-          padding: EdgeInsets.all(25),
+          padding: const EdgeInsets.all(25),
           child: RawMaterialButton(
               onPressed: () {
-                print("test");
+                Navigator.of(context).pushNamed('/paire');
               },
               child: Column(children: [
                 Image.asset(

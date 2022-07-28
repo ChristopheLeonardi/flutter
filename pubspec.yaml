@@ -64,14 +64,14 @@ flutter:
   fonts:
       - family: Luxia
         fonts:
-          - asset: fonts/Luxia-Display.otf
+          - asset: assets/fonts/Luxia-Display.otf
             weight: 400
 
       - family: Montserrat
         fonts:
-          - asset: fonts/Montserrat-Light.ttf
+          - asset: assets/fonts/Montserrat-Light.ttf
             weight: 200
-          - asset: fonts/Montserrat-Regular.ttf
+          - asset: assets/fonts/Montserrat-Regular.ttf
             weight: 400
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
