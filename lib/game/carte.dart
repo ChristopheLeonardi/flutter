@@ -25,7 +25,6 @@ class _CarteState extends State<Carte> {
       fill: Fill
           .fillBack, // Fill the back side of the card to make in the same size as the front.
       direction: FlipDirection.HORIZONTAL, // default
-      onFlipDone: ,
       front: Container(
         decoration: BoxDecoration(
             border: Border.all(color: Color.fromARGB(255, 77, 77, 77)),
