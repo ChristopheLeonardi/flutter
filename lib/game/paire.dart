@@ -22,27 +22,26 @@ class Paquet {
 
 createMemoryPaquet(paquet) {
   int count = 2; // First card out of while
-  List memoryPaquet = [];
   while (count != globals.difficulte) {
     var carte = paquet.pickCard(count);
-    for (var c in memoryPaquet) {
+    for (var c in globals.memoryPaquet) {
       if (((carte["valeur"] == c["valeur"]) &&
               (carte["couleur"] == c["couleur"])) ||
-          memoryPaquet.isEmpty) {
+          globals.memoryPaquet.isEmpty) {
         while (((carte["valeur"] == c["valeur"]) &&
                 (carte["couleur"] == c["couleur"])) ||
-            memoryPaquet.isEmpty) {
+            globals.memoryPaquet.isEmpty) {
           carte = paquet.pickCard(count);
         }
       }
     }
-    memoryPaquet.add(carte);
-    memoryPaquet.add(carte);
+    globals.memoryPaquet.add(carte);
+    globals.memoryPaquet.add(carte);
     // Les cartes sont intégrées 2 fois pour les doubles
     count++;
   }
-  memoryPaquet.shuffle();
-  return memoryPaquet;
+  globals.memoryPaquet.shuffle();
+  return globals.memoryPaquet;
 }
 
 class Paire extends StatefulWidget {
@@ -56,18 +55,18 @@ class _MyWidgetState extends State<Paire> {
   @override
   Widget build(BuildContext context) {
     final Paquet paquet = Paquet();
-    var memoryPaquet = createMemoryPaquet(paquet);
+    globals.memoryPaquet = createMemoryPaquet(paquet);
     return Container(
         color: Colors.white,
         child: Center(
             child: Wrap(
           spacing: 25,
           runSpacing: 25,
-          children: List.generate(memoryPaquet.length, (index) {
+          children: List.generate(globals.memoryPaquet.length, (index) {
             return Carte(
-              couleur: memoryPaquet[index]["couleur"],
-              valeur: memoryPaquet[index]["valeur"],
-              id: memoryPaquet[index]["id"],
+              couleur: globals.memoryPaquet[index]["couleur"],
+              valeur: globals.memoryPaquet[index]["valeur"],
+              id: globals.memoryPaquet[index]["id"],
             );
           }),
         )));

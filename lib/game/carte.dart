@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'rules.dart';
+import '../globals.dart' as globals;
 
 class Carte extends StatefulWidget {
   Carte(
@@ -41,17 +44,21 @@ class _CarteState extends State<Carte> {
           onPressed: () {
             cardKey.currentState?.toggleCard();
             setState(() {
-              var result =
-                  rules.arraySelected(widget.valeur, widget.couleur, widget.id);
+              var result = rules.arraySelected(
+                  widget.valeur, widget.couleur, widget.id, cardKey);
               switch (result) {
+                case null:
+                  break;
                 case "gameover":
                   break;
                 case "winner":
                   break;
                 default:
+                  result[0][2].currentState?.toggleCard();
+                  result[1][2].currentState?.toggleCard();
                   break;
               }
-              print(result);
+              //print(globals.memoryPaquet);
             });
           },
         ),

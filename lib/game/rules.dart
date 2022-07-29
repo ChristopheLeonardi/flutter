@@ -1,10 +1,10 @@
 import '../globals.dart' as globals;
 
 class Rules {
-  arraySelected(valeur, couleur, id) {
+  arraySelected(valeur, couleur, id, cardkey) {
     globals.selectedCards = [
       ...globals.selectedCards,
-      [valeur + couleur, id]
+      [valeur + couleur, id, cardkey]
     ];
     if (globals.selectedCards.length >= 2) {
       if (globals.selectedCards[0][0] != globals.selectedCards[1][0]) {
