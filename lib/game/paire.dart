@@ -16,7 +16,7 @@ class Paquet {
 }
 
 createMemoryPaquet(paquet) {
-  int difficulte = 4;
+  int difficulte = 9;
   int count = 2; // First card out of while
   List memoryPaquet = [];
   while (count != difficulte) {
@@ -49,6 +49,8 @@ class Paire extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<Paire> {
+  List selectedCard = [];
+  int life = 5;
   @override
   Widget build(BuildContext context) {
     final Paquet paquet = Paquet();

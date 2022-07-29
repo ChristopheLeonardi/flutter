@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flip_card/flip_card.dart';
+import 'paire.dart';
 
 class Carte extends StatefulWidget {
   Carte({Key? key, required this.couleur, required this.valeur})
@@ -13,21 +12,23 @@ class Carte extends StatefulWidget {
   State<Carte> createState() => _CarteState();
 }
 
-gameTurn(context) {
-  print(context);
-}
-
 class _CarteState extends State<Carte> {
+  GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: Manually flio the card in order to add function rules game
     return FlipCard(
-      fill: Fill
-          .fillBack, // Fill the back side of the card to make in the same size as the front.
+      key: cardKey,
+      flipOnTouch: false,
+      fill: Fill.fillBack,
       direction: FlipDirection.HORIZONTAL, // default
       front: Container(
         decoration: BoxDecoration(
-            border: Border.all(color: Color.fromARGB(255, 77, 77, 77)),
+            border: Border.all(color: const Color.fromARGB(255, 77, 77, 77)),
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
               image: AssetImage("assets/dos-carte.jpg"),
@@ -35,6 +36,30 @@ class _CarteState extends State<Carte> {
             )),
         height: 125,
         width: 80,
+        child: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          onPressed: () {
+            cardKey.currentState?.toggleCard();
+
+/*             if (selectedCard.length < 2) {
+              selectedCard.add(widget.valeur + widget.couleur);
+              print(selectedCard);
+            }
+
+            if (selectedCard.length == 2) {
+              if (selectedCard[0] == selectedCard[1]) {
+                print("bravo");
+              } else {
+                print("wrong");
+                life--;
+                if (life == 0) {
+                  print("gameover");
+                }
+              }
+            } */
+          },
+        ),
       ),
       back: Container(
         decoration: BoxDecoration(
