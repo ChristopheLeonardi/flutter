@@ -6,14 +6,11 @@ class Rules {
       ...globals.selectedCards,
       [valeur + couleur, id]
     ];
-    print(globals.selectedCards);
     if (globals.selectedCards.length >= 2) {
-      if (globals.selectedCards[0] != globals.selectedCards[1]) {
+      if (globals.selectedCards[0][0] != globals.selectedCards[1][0]) {
         globals.life--;
         if (globals.life == 0) {
-          var failIds = "all";
-          print("gameover");
-          return failIds;
+          return "gameover";
         }
         var failIds = globals.selectedCards;
         globals.selectedCards = [];
@@ -24,8 +21,7 @@ class Rules {
         globals.cardsFound.add(globals.selectedCards[1]);
 
         if (globals.cardsFound.length == globals.difficulte * 2) {
-          print("you win");
-          return;
+          return "winner";
         }
       }
     }

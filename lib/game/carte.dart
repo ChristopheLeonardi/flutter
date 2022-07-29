@@ -17,6 +17,7 @@ class Carte extends StatefulWidget {
 class _CarteState extends State<Carte> {
   GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
   Rules rules = Rules();
+
   @override
   Widget build(BuildContext context) {
     return FlipCard(
@@ -40,7 +41,17 @@ class _CarteState extends State<Carte> {
           onPressed: () {
             cardKey.currentState?.toggleCard();
             setState(() {
-              rules.arraySelected(widget.valeur, widget.couleur, widget.id);
+              var result =
+                  rules.arraySelected(widget.valeur, widget.couleur, widget.id);
+              switch (result) {
+                case "gameover":
+                  break;
+                case "winner":
+                  break;
+                default:
+                  break;
+              }
+              print(result);
             });
           },
         ),
@@ -74,7 +85,7 @@ class _CarteState extends State<Carte> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               onPressed: () {
-                cardKey.currentState?.toggleCard();
+                //cardKey.currentState?.toggleCard();
               },
             ),
           ],
